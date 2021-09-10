@@ -2,10 +2,10 @@
 
 //import
 const express = require("express");
-// const connectDB = require("./config/mongoose");
+const connectDB = require("./config/mongoose");
 const port = process.env.PORT || 8080;
 const app = express();
-// connectDB();
+connectDB();
 app.use(express.urlencoded({ extended: true }));
 // app.use("/", require("./routes/index"));
 
