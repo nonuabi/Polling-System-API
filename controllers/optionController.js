@@ -1,5 +1,17 @@
 const Option = require("../model/optionSchema");
 
+// ADD VOTE IN OPTION CONTROLLER
+module.exports.addVote = async function (req, res) {
+  let response = await Option.findOne({ _id: req.params.id });
+  if (response) {
+    response.Vote += 1;
+    await response.save();
+    return res.status(200).send(response);
+  } else {
+    return res.status(500).send("Server Error / Option Not Found");
+  }
+};
+
 // DELETE OPTION CONTROLLER
 module.exports.deleteOption = async function (req, res) {
   let response = await Option.findOne({ _id: req.params.id });
