@@ -7,7 +7,7 @@ const port = process.env.PORT || 8080;
 const app = express();
 connectDB();
 app.use(express.urlencoded({ extended: true }));
-// app.use("/", require("./routes/index"));
+app.use("/", require("./routes/index"));
 
 //check for error
 app.listen(port, function (err) {

@@ -6,9 +6,8 @@ const questionSchema = new mongoose.Schema({
   //STRUCTURE
   Question: {
     type: String,
-    required: true,
   },
-  OPTIONS: [
+  Options: [
     {
       type: mongoose.Schema.ObjectId,
       ref: "Option",
