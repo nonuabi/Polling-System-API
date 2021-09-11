@@ -1,6 +1,6 @@
 # Polling-System-API
 
-## API :  https://polling-system-api.herokuapp.com/
+### API :  https://polling-system-api.herokuapp.com/
 
 ### Introduction
   > It's an API where anyone can create questions with options and also add votes to it. <br/>
