@@ -66,7 +66,7 @@ module.exports.createOption = async function (req, res) {
           await question_response.save();
           return res.status(200).send(option_response);
         } else {
-          return res.status(500).send("Option is not created");
+          return res.status(500).send("Option Not Created");
         }
       } else {
         return res.status(406).send("Please Provide text");
