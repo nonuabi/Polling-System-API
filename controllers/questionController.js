@@ -81,30 +81,33 @@ module.exports.createOption = async function (req, res) {
 
 // DETELE QUESTION CONTROLLER
 module.exports.deleteQuestion = async function (req, res) {
+  console.log("delete req");
   const paramsContent = req.params.id;
   if (paramsContent) {
     const response = await Question.findOne({ _id: req.params.id }).populate(
       "Options"
     );
+    console.log("response :: ", response);
     if (response) {
+      let check = false;
       if (response.Options.length > 0) {
-        let check = false;
         // CHECKING IS ANY OPTION IS VOTED OR NOT
         for (let option of response.Options) {
           if (option.Vote > 0) {
             check = true;
           }
         }
-        // IF ANY OF THE OPTION IS VOTED THEN THE QUESTION IS NOT DELETABLE
-        if (check) {
-          return res.status(405).send("Not Allowed to delete ");
-        }
-        // DELETING OPTIONS
-        await Option.deleteMany({ Question: response._id });
-        // DELETING QEUESTION
-        await Question.deleteOne({ _id: response._id });
-        return res.status(200).send("Question is delted Successfully");
       }
+      console.log("check :: ", check);
+      // IF ANY OF THE OPTION IS VOTED THEN THE QUESTION IS NOT DELETABLE
+      if (check) {
+        return res.status(405).send("Not Allowed to delete ");
+      }
+      // DELETING OPTIONS
+      await Option.deleteMany({ Question: response._id });
+      // DELETING QEUESTION
+      await Question.deleteOne({ _id: response._id });
+      return res.status(200).send("Question is delted Successfully");
     } else {
       return res.status(500).send("Sever Error / Question Not Found");
     }
