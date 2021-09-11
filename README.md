@@ -6,6 +6,20 @@
   > It's an API where anyone can create questions with options and also add votes to it. <br/>
   > Authentication is not needed. <br/>
 
+###  How to setup the project on local system
+
+  1.  Clone this project
+  2.  Start by installing npm if you don't have it already.
+  3.  Navigate to Project Directory by :
+  ~~~
+  cd Polling-System-API
+  ~~~
+  4.  run following commands:
+  ~~~
+  npm install
+  nodemon index.js
+  ~~~
+
 ### Features
   * Create a Question (You can add as many questions as you want)
     * Required Routes `/questions/create`
@@ -30,20 +44,6 @@
     * Required Routes `/questions/:id `
     ![](assets/img/fetchQuestion1.jpg)
     ![](assets/img/fetchQuestion2.jpg)
-
-###  How to setup the project on local system
-
-  1.  Clone this project
-  2.  Start by installing npm if you don't have it already.
-  3.  Navigate to Project Directory by :
-  ~~~
-  cd Polling-System-API
-  ~~~
-  4.  run following commands:
-  ~~~
-  npm install
-  nodemon index.js
-  ~~~
 
 ### Directory Structure
   `/config` - MongooDB Atlas Configuration <br/>
