@@ -9,4 +9,5 @@ const questionController = require("../controllers/questionController");
 router.post("/create", questionController.createQuestion);
 router.get("/:id", questionController.fetchQuestions);
 router.post("/:id/options/create", questionController.createOption);
+router.delete("/:id/delete", questionController.deleteQuestion);
 module.exports = router;
