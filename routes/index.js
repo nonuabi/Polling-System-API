@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 
-//ROUTERS
+//ROUTERS MIDDLEWARES
 router.use("/questions", require("./questions"));
 router.use("/options", require("./options"));
 

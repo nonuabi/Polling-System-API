@@ -6,7 +6,11 @@ const connectDB = require("./config/mongoose");
 const port = process.env.PORT || 8080;
 const app = express();
 connectDB();
+
+// JSON CONVERT REQUEST BODY TO JSON
 app.use(express.urlencoded({ extended: true }));
+
+// DEFINE ROUTES
 app.use("/", require("./routes/index"));
 
 //check for error

@@ -4,8 +4,8 @@ const Option = require("../model/optionSchema");
 //CREATE QUESTION CONTROLLER
 module.exports.createQuestion = async function (req, res) {
   const { question } = req.body;
-  // CREATE QUESTION
   if (question) {
+    // CREATING QUESTION
     const response = await Question.create({ Question: question });
     if (response) {
       return res.status(200).send(response);
@@ -21,6 +21,7 @@ module.exports.createQuestion = async function (req, res) {
 module.exports.fetchQuestions = async function (req, res) {
   const paramsContent = req.params.id;
   if (paramsContent) {
+    // FINDING QUESTION
     const response = await Question.findOne({ _id: req.params.id }).populate(
       "Options"
     );

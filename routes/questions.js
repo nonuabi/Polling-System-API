@@ -1,13 +1,13 @@
-//import
 const express = require("express");
-//import
 const router = express.Router();
-//import
 const questionController = require("../controllers/questionController");
 
-//routes
+//CREATE NEW QUESTION ROUTER
 router.post("/create", questionController.createQuestion);
+//GET LIST OF QUESTION  ROUTER
 router.get("/:id", questionController.fetchQuestions);
+//CREATE NEW OPTION IN QUESTION ROUTER
 router.post("/:id/options/create", questionController.createOption);
+//DELETE QUESTION ROUTER
 router.delete("/:id/delete", questionController.deleteQuestion);
 module.exports = router;
