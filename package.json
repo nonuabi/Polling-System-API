@@ -18,6 +18,7 @@
   "homepage": "https://github.com/nonuabi/Polling-System-API#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^6.0.5"
+    "mongoose": "^6.0.5",
+    "nodemon": "^2.0.12"
   }
 }
