@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 // OPTION SCHEMA
 const optionSchema = new mongoose.Schema({
   Question: {
-    type: mongoose.Schema.ObjectId,
-    ref: "Question",
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "question",
   },
   Text: {
     type: String,
@@ -19,6 +19,6 @@ const optionSchema = new mongoose.Schema({
 });
 
 // CREATE MODEL
-const Option = mongoose.model("Option", optionSchema);
+const Option = mongoose.model("option", optionSchema);
 
 module.exports = Option;

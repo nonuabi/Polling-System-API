@@ -6,6 +6,7 @@ const router = express.Router();
 const questionController = require("../controllers/questionController");
 
 //routes
-router.post("/create", questionController.create_ques);
-router.post("/:id/options/create", questionController.createOpt);
+router.post("/create", questionController.createQuestion);
+router.get("/:id", questionController.fetchQuestions);
+router.post("/:id/options/create", questionController.createOption);
 module.exports = router;

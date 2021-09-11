@@ -2,7 +2,7 @@ const Question = require("../model/questionSchema");
 const Option = require("../model/optionSchema");
 
 //CREATE QUESTION CONTROLLER
-module.exports.create_ques = async function (req, res) {
+module.exports.createQuestion = async function (req, res) {
   const { question } = req.body;
   // CREATE QUESTION
   const response = await Question.create({ Question: question });
@@ -13,11 +13,20 @@ module.exports.create_ques = async function (req, res) {
   }
 };
 
-
-
+// FETCH LIST OF QUESTION CONTROLLER
+module.exports.fetchQuestions = async function (req, res) {
+  const response = await Question.findOne({ _id: req.params.id }).populate(
+    "Options"
+  );
+  if (response) {
+    return res.status(200).send(response);
+  } else {
+    return res.status(500).send("Server Error/Question not found");
+  }
+};
 
 // CREATE OPTION CONTROLER
-module.exports.createOpt = async function (req, res) {
+module.exports.createOption = async function (req, res) {
   // FINDING QUESTION BY ID
   const question_response = await Question.findOne({ _id: req.params.id });
   if (question_response) {
@@ -30,7 +39,7 @@ module.exports.createOpt = async function (req, res) {
         Text: text,
       });
       if (option_response) {
-        var link_Vote =
+        let link_Vote =
           req.protocol +
           "://" +
           req.headers.host +

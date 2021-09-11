@@ -9,12 +9,12 @@ const questionSchema = new mongoose.Schema({
   },
   Options: [
     {
-      type: mongoose.Schema.ObjectId,
-      ref: "Option",
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "option",
     },
   ],
 });
 
 //MODEL
-const Question = mongoose.model("Question", questionSchema);
+const Question = mongoose.model("question", questionSchema);
 module.exports = Question;
